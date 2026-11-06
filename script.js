@@ -1,5 +1,5 @@
 /* ==========================================================================
-   David Olufemi — portfolio interactions
+   David Olufemi portfolio interactions
    ========================================================================== */
 (function () {
   "use strict";
@@ -681,50 +681,102 @@
     }
   }
 
+  /* ---------- Skills accordion ---------- */
+  const accordion = $("[data-accordion]");
+  if (accordion) {
+    const triggers = $$(".acc__trigger", accordion);
+    const setItem = (item, open) => {
+      item.classList.toggle("is-open", open);
+      const trigger = $(".acc__trigger", item);
+      const panel = $(".acc__panel", item);
+      if (trigger) trigger.setAttribute("aria-expanded", open ? "true" : "false");
+      if (panel) panel.setAttribute("aria-hidden", open ? "false" : "true");
+    };
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const item = trigger.closest(".acc");
+        const isOpen = item.classList.contains("is-open");
+        $$(".acc", accordion).forEach((other) => setItem(other, false));
+        if (!isOpen) setItem(item, true);
+      });
+    });
+  }
+
   /* ---------- Project filters ---------- */
   const filterBar = $("[data-filters]");
   if (filterBar) {
     const filters = $$(".filter", filterBar);
     const cards = $$(".project");
-    const countEl = $("[data-filter-count]");
     const empty = $("[data-empty]");
-    const params = new URLSearchParams(window.location.search);
-    const initial = (params.get("filter") || "all").toLowerCase();
+    const seeMoreWrap = $("[data-see-more-wrap]");
+    const seeMore = $("[data-see-more]", seeMoreWrap);
+    const seeMoreCount = $("[data-see-more-count]", seeMoreWrap);
+    const PAGE = 6;
+    let active = "all";
+    let visible = PAGE;
 
-    const apply = (cat) => {
-      let shown = 0;
+    const params = new URLSearchParams(window.location.search);
+    const requested = (params.get("filter") || "all").toLowerCase();
+    if (filters.some((f) => f.dataset.filter === requested)) active = requested;
+
+    const matches = (card) =>
+      active === "all" || (card.dataset.cat || "").split(" ").includes(active);
+
+    const render = (animate) => {
+      const matched = cards.filter(matches);
+      const shown = new Set(matched.slice(0, visible));
+
       filters.forEach((f) => {
-        const active = f.dataset.filter === cat;
-        f.classList.toggle("is-active", active);
-        f.setAttribute("aria-pressed", active ? "true" : "false");
+        const on = f.dataset.filter === active;
+        f.classList.toggle("is-active", on);
+        f.setAttribute("aria-pressed", on ? "true" : "false");
       });
+
       cards.forEach((card) => {
-        const match = cat === "all" || (card.dataset.cat || "").split(" ").includes(cat);
-        card.classList.toggle("is-hidden", !match);
-        if (match) {
-          shown += 1;
+        const show = shown.has(card);
+        const wasHidden = card.classList.contains("is-hidden");
+        card.classList.toggle("is-hidden", !show);
+        if (show && animate && wasHidden) {
           card.classList.remove("is-in");
           // restart the entrance
           void card.offsetWidth;
           requestAnimationFrame(() => card.classList.add("is-in"));
+        } else if (show) {
+          card.classList.add("is-in");
         }
       });
-      if (countEl) countEl.textContent = String(shown).padStart(2, "0") + (shown === 1 ? " project" : " projects");
-      if (empty) empty.classList.toggle("is-visible", shown === 0);
+
+      if (seeMoreWrap) {
+        const left = Math.max(0, matched.length - shown.size);
+        seeMoreWrap.hidden = left === 0;
+        if (seeMoreCount) {
+          seeMoreCount.textContent = left + (left === 1 ? " project left" : " projects left");
+        }
+      }
+
+      if (empty) empty.classList.toggle("is-visible", matched.length === 0);
     };
 
     filters.forEach((f) => {
       f.addEventListener("click", () => {
-        const cat = f.dataset.filter;
-        apply(cat);
+        active = f.dataset.filter;
+        visible = PAGE;
+        render(true);
         const url = new URL(window.location.href);
-        if (cat === "all") url.searchParams.delete("filter");
-        else url.searchParams.set("filter", cat);
+        if (active === "all") url.searchParams.delete("filter");
+        else url.searchParams.set("filter", active);
         window.history.replaceState({}, "", url);
       });
     });
 
-    apply(initial);
+    if (seeMore) {
+      seeMore.addEventListener("click", () => {
+        visible += PAGE;
+        render(true);
+      });
+    }
+
+    render(true);
   }
 
   /* ---------- Lightbox ---------- */
@@ -751,7 +803,7 @@
       if (!p) return;
       imgEl.src = p.img;
       imgEl.alt = p.alt;
-      catEl.textContent = p.cat + " — " + p.year;
+      catEl.textContent = p.cat + " · " + p.year;
       titleEl.textContent = p.title;
       descEl.textContent = p.desc;
       countEl.textContent = String(index + 1).padStart(2, "0") + " / " + String(items.length).padStart(2, "0");
@@ -843,9 +895,9 @@
       const email = String(data.get("email") || "").trim();
       const type = String(data.get("type") || "A project").trim();
       const message = String(data.get("message") || "").trim();
-      const subject = encodeURIComponent(`${type} — enquiry from ${name}`);
+      const subject = encodeURIComponent(`${type}, enquiry from ${name}`);
       const bodyText = encodeURIComponent(
-        `Hi King David,\n\n${message}\n\n—\n${name}\n${email}`
+        `Hi King David,\n\n${message}\n\n${name}\n${email}`
       );
       const status = $("[data-form-status]", form);
       if (status) status.textContent = "Opening your email app…";
@@ -877,8 +929,4 @@
     });
   }
 
-  /* ---------- Placeholder social links ---------- */
-  $$("[data-placeholder]").forEach((a) => {
-    a.addEventListener("click", (e) => e.preventDefault());
-  });
 })();
