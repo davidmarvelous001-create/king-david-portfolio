@@ -14,7 +14,7 @@
       cat: "Advertising / Real estate",
       year: "2025",
       img: "assets/img/work-cadenza-billboard.jpg",
-      alt: "Cadenza by Velox land sale billboard",
+      alt: "Cadenza by Velox billboard reading Your Family Deserves a Plot",
       desc: "A high-impact sales campaign for ₦20M plots off Obiri-Ikwere. Family-first headline, glossy price treatment and the C of O assurance up front. Property enquiries rose 8% in the three weeks after launch.",
     },
     delight: {
@@ -66,12 +66,12 @@
       desc: "A premium apartment listing that leads with lifestyle before specs. Clean white space, an architectural hero image and a clear price ladder.",
     },
     "velox-billboard": {
-      title: "Velox Vest Billboard",
+      title: "Velox City Billboard",
       cat: "Advertising / Real estate",
       year: "2025",
       img: "assets/img/work-velox-billboard.jpg",
-      alt: "Velox Vest billboard in Abuja",
-      desc: "A city-scale billboard for Velox Vest. A single confident line, a human portrait and a high-contrast layout that still works at speed and distance.",
+      alt: "Velox city billboard reading You Can Own A Part Of The City",
+      desc: "A city-scale billboard that sells the idea of city ownership before the specs. One confident line, a clear location cue and a high-contrast layout that still works at speed and distance.",
     },
     choco: {
       title: "Lovely Love Treats Chocolate Cake",
@@ -96,14 +96,6 @@
       img: "assets/img/work-landpay.jpg",
       alt: "Landpay Japa Plans social media design",
       desc: "A social campaign for a land-buying platform. Bold purple system, direct copy and a 3D location pin that became the campaign's visual signature.",
-    },
-    brochure: {
-      title: "Cadenza Brochure",
-      cat: "Print / Layout",
-      year: "2025",
-      img: "assets/img/work-cadenza-pricing.jpg",
-      alt: "Cadenza sales brochure pricing page",
-      desc: "A 13-page sales brochure that turns a land offer into a clear, trustworthy story. Black, gold and white system, one job per page, and the fine print given room to breathe.",
     },
     boys: {
       title: "The Boys",
