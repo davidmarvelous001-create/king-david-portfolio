@@ -13,7 +13,7 @@ about/contact frames.
 | File | Layout |
 | --- | --- |
 | `index.html` | Home. Full-height portrait hero with ghost name, floating cards and a moving Flicko client marquee; then the rotating discipline words (Branding / Campaigns / Packaging) with ghost echoes, selected work, dark stats block and monochrome CTA |
-| `projects.html` | Projects. Split hero with a bleed image and hand-written note, sticky text filters with counts, two-column uniform grid of 18 projects where every image box is 4:5, See More paging and a See Full Works link |
+| `projects.html` | Projects. Split hero with a bleed image and hand-written note, sticky text filters with counts, two-column uniform grid of 22 projects where every image box is 4:5, See More paging and a See Full Works link |
 | `about.html` | About. Full-height dark hero, portrait and short bio, a grey skills accordion, two experience rows and a moving tool logo banner |
 | `contact.html` | Contact. Full-height dark hero, contact details including WhatsApp, and a mailto form |
 
@@ -45,9 +45,14 @@ The bio, project list, case-study details and metrics come from the supplied por
 - Delight Hibiscus label delivered print-ready in 24 hours.
 - Cadenza sales brochure: 13 pages.
 
+The latest project images were refreshed from the shared Drive folder. The branding set now
+includes Lovely Love Treats (chocolate cake, meatpie and chinchin), Velox Vest merch and the
+Delight lifestyle campaign, alongside the existing Delight packaging and bottle range work.
+
 Real contact details: `david4ayomipo@gmail.com`, `+234 814 788 2426`, Port Harcourt, Nigeria.
 WhatsApp opens a chat at `wa.me/2348147882426` and is linked from the mobile menu, the footer
-contact column on every page, the Contact detail cards and the Contact social row.
+contact column on every page, the Contact detail cards, the Contact social row, the Home CTA
+and the WhatsApp icon beside “See the work” on the rotating Home hero.
 
 ## The 60-second edit
 
@@ -56,7 +61,7 @@ contact column on every page, the Contact detail cards and the Contact social ro
 - **Social links** Instagram (`instagram.com/king_david_olufemi`), Behance
   (`behance.net/davidolufemi1`) and LinkedIn (`linkedin.com/in/king-david-olufemi`) are
   wired in the footers and on the Contact page as icon buttons, opening in a new tab.
-- **WhatsApp** `wa.me/2348147882426` in the menu, footers, Contact cards and Home CTA.
+- **WhatsApp** `wa.me/2348147882426` in the menu, footers, Contact cards, Home CTA and the icon beside “See the work”.
 - **Copy** hero lines, stats, project titles and the short about bio.
 - **Meta** titles and descriptions in each page's `<head>`.
 
@@ -98,9 +103,9 @@ The home page reuses four of the same keys in `index.html`. To add a new project
 card in both files and add a matching entry to `PROJECTS`. Update the numbers inside the
 filter buttons (`.filter__count`) if the category totals change.
 
-The Projects grid shows **6 at a time**. The See More button reveals another 6 and reports
-how many are left; hidden cards are excluded from the lightbox. Changing a filter resets
-the grid to 6.
+The Projects grid shows **6 at a time** out of 22. The See More button reveals another 6 and
+reports how many are left; hidden cards are excluded from the lightbox. Changing a filter
+resets the grid to 6.
 
 ## Assets
 
@@ -128,7 +133,7 @@ Images are pre-resized and compressed. Keep new work around 1400 to 1600px on th
 - Mouse drift on the intro hero portrait and ghost name, drift on the rotating hero words, cursor-following card image drift and magnetic links.
 - Cursor that grows into a labelled bubble ("View", "Email", "Call") over key targets.
 - Rotating home hero words with generated ghost tracks and hover dimming of siblings.
-- Infinite client marquee in Flicko with an edge fade, hover pause and drag-to-scrub with spring back.
+- Infinite client marquee in Flicko with an edge fade, hover pause and drag-to-scrub with spring back, including Lovely Love Treats.
 - Skills accordion on About: Flicko titles, one open at a time, short explanations and `aria-expanded` state.
 - Tool logo banner on About: 36 icon tiles in a seamless marquee with an edge fade, hover pause, hover lift and reduced-motion fallback.
 - Sticky project filters with URL sync (`?filter=web3`), animated active underline and an empty state.
@@ -142,7 +147,7 @@ Images are pre-resized and compressed. Keep new work around 1400 to 1600px on th
 
 ```
 index.html      home structure and copy
-projects.html   hero, filters, 18 project cards, See More and lightbox
+projects.html   hero, filters, 22 project cards, See More and lightbox
 about.html      hero, bio, skills accordion, experience and tool marquee
 contact.html    contact details and form
 styles.css      design system, monochrome tokens, layouts, motion and responsive rules

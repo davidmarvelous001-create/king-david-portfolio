@@ -65,13 +65,21 @@
       alt: "LUXE Apartments property flyer",
       desc: "A premium apartment listing that leads with lifestyle before specs. Clean white space, an architectural hero image and a clear price ladder.",
     },
+    "velox-billboard": {
+      title: "Velox Vest Billboard",
+      cat: "Advertising / Real estate",
+      year: "2025",
+      img: "assets/img/work-velox-billboard.jpg",
+      alt: "Velox Vest billboard in Abuja",
+      desc: "A city-scale billboard for Velox Vest. A single confident line, a human portrait and a high-contrast layout that still works at speed and distance.",
+    },
     choco: {
-      title: "Delight Snack Range",
-      cat: "Branding / Packaging",
+      title: "Lovely Love Treats Chocolate Cake",
+      cat: "Branding / Campaign",
       year: "2025",
       img: "assets/img/work-choco.jpg",
-      alt: "Delight chocolate cake promotional design",
-      desc: "A warm, appetite-first campaign for the Delight snack line. Oversized type, rich product photography and a price that reads from across the room.",
+      alt: "Lovely Love Treats chocolate cake campaign",
+      desc: "An appetite-first campaign for Lovely Love Treats. Warm gold palette, oversized script and a chocolate pour that sells the first bite before you read the price.",
     },
     kaeru: {
       title: "KAERU",
@@ -146,12 +154,36 @@
       desc: "An estate launch and allocation announcement built around a single hero image, a gold key and a date people need to remember.",
     },
     sizzles: {
-      title: "Sizzles Chinchin",
+      title: "Lovely Love Treats Chinchin",
       cat: "Branding / Packaging",
       year: "2025",
       img: "assets/img/work-sizzles.jpg",
-      alt: "Sizzles chinchin packaging promotion",
-      desc: "A violet, hand-lettered promo for a snack brand. Playful script, product-forward composition and a price badge that pops.",
+      alt: "Lovely Love Treats crunchy chinchin campaign",
+      desc: "A playful violet promo for Lovely Love Treats crunchy chinchin. Hand-lettered type, a product-forward composition and a price badge built to pop in a crowded feed.",
+    },
+    "llt-meatpie": {
+      title: "Lovely Love Treats Meatpie",
+      cat: "Branding / Campaign",
+      year: "2025",
+      img: "assets/img/work-llt-meatpie.jpg",
+      alt: "Lovely Love Treats meatpie campaign",
+      desc: "A warm, direct campaign for a savoury favourite. Big appetite-led type, a clean price line and product photography that makes the crust the hero.",
+    },
+    "velox-merch": {
+      title: "Velox Vest Merch",
+      cat: "Branding / Apparel",
+      year: "2025",
+      img: "assets/img/work-velox-merch.jpg",
+      alt: "Velox Vest branded t-shirt mockup",
+      desc: "A small merchandise system that carries the Velox Vest offer onto apparel. Minimal marks, a restrained palette and a 35% return message that still reads from across a room.",
+    },
+    "delight-lifestyle": {
+      title: "Delight Lifestyle",
+      cat: "Branding / Campaign",
+      year: "2025",
+      img: "assets/img/work-delight-lifestyle.jpg",
+      alt: "Delight hibiscus drink lifestyle campaign",
+      desc: "A lifestyle-led brand campaign that puts the bottle in real hands. Warm social photography, a relaxed tone and a label that stays legible in the moment.",
     },
     "delight-range": {
       title: "Delight Bottle Range",
@@ -803,7 +835,7 @@
       if (!p) return;
       imgEl.src = p.img;
       imgEl.alt = p.alt;
-      catEl.textContent = p.cat + " · " + p.year;
+      catEl.textContent = p.cat;
       titleEl.textContent = p.title;
       descEl.textContent = p.desc;
       countEl.textContent = String(index + 1).padStart(2, "0") + " / " + String(items.length).padStart(2, "0");
