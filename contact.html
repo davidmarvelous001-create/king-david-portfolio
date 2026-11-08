@@ -30,16 +30,23 @@
 <div class="cursor" data-cursor aria-hidden="true"></div>
 
 <header class="site-header" data-header>
-  <a class="brand" href="index.html" aria-label="King David, home">King David<sup>®</sup></a>
+  <a class="brand" href="index.html" aria-label="King David, home">
+    <span class="brand__name">King David</span><sup>®</sup>
+  </a>
   <nav class="nav-desktop" aria-label="Primary">
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="about.html">About</a>
-    <a href="contact.html" aria-current="page">Contact</a>
+    <span class="nav-desktop__pill" aria-hidden="true"></span>
+    <a href="index.html" data-label="Home"><span>Home</span></a>
+    <a href="projects.html" data-label="Projects"><span>Projects</span></a>
+    <a href="about.html" data-label="About"><span>About</span></a>
+    <a href="contact.html" aria-current="page" data-label="Contact"><span>Contact</span></a>
   </nav>
   <div class="header-right">
-    <a class="btn btn-red header-cta" href="mailto:david4ayomipo@gmail.com">Email me</a>
-    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu">
+    <a class="btn btn-red header-cta" href="mailto:david4ayomipo@gmail.com">
+      <span class="header-cta__dot" aria-hidden="true"></span>
+      <span class="header-cta__label">Email me</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu" aria-label="Open menu">
       <i aria-hidden="true"></i> <span>Menu</span>
     </button>
   </div>

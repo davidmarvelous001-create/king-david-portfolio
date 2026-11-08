@@ -265,11 +265,52 @@
   /* ---------- Header state ---------- */
   const header = $("[data-header]");
   if (header) {
+    let lastY = window.scrollY;
     const onScroll = () => {
-      header.classList.toggle("is-stuck", window.scrollY > 24);
+      const y = window.scrollY;
+      header.classList.toggle("is-stuck", y > 24);
+
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      header.style.setProperty("--scroll", max > 0 ? Math.min(y / max, 1).toFixed(4) : "0");
+
+      if (!body.classList.contains("is-locked")) {
+        if (y > 420 && y > lastY + 6) header.classList.add("is-hidden");
+        else if (y < lastY - 6 || y < 120) header.classList.remove("is-hidden");
+      }
+      lastY = y;
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    /* Sliding nav highlight */
+    const nav = $(".nav-desktop", header);
+    const pill = nav ? $(".nav-desktop__pill", nav) : null;
+    if (nav && pill) {
+      const navLinks = $$("a", nav);
+      const current = $('a[aria-current="page"]', nav) || navLinks[0];
+      const movePill = (el) => {
+        if (!el) {
+          pill.style.opacity = "0";
+          return;
+        }
+        const nr = nav.getBoundingClientRect();
+        const r = el.getBoundingClientRect();
+        pill.style.width = `${r.width + 16}px`;
+        pill.style.transform = `translate(${r.left - nr.left - 8}px, -50%)`;
+        pill.style.opacity = "1";
+      };
+      navLinks.forEach((a) => {
+        a.addEventListener("mouseenter", () => movePill(a));
+        a.addEventListener("focus", () => movePill(a));
+      });
+      nav.addEventListener("mouseleave", () => movePill(current));
+      window.addEventListener("resize", () => movePill(current));
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => movePill(current));
+      }
+      setTimeout(() => movePill(current), 60);
+    }
   }
 
   /* ---------- Menu ---------- */
@@ -283,7 +324,9 @@
     menu.setAttribute("aria-hidden", open ? "false" : "true");
     menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
     if (menuLabel) menuLabel.textContent = open ? "Close" : "Menu";
+    menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     body.classList.toggle("is-locked", open);
+    header.classList.remove("is-hidden");
     header.classList.toggle("is-stuck", open || window.scrollY > 24);
     if (open) {
       const first = $("a", menu);

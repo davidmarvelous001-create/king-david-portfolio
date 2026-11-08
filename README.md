@@ -47,7 +47,7 @@ The bio, project list, case-study details and metrics come from the supplied por
 The latest project images were refreshed from the shared Drive folder. The branding set now
 includes Lovely Love Treats (chocolate cake, meatpie and chinchin), Velox Vest merch and the
 Delight lifestyle campaign, alongside the existing Delight packaging and bottle range work.
-The Projects hero uses a previously unused Velox Vest co-ownership flyer. The Cadenza Brochure
+The Projects hero uses the Velox Vest hoodie mockup. The Cadenza Brochure
 card was removed because no clean brochure image was available.
 
 Real contact details: `david4ayomipo@gmail.com`, `+234 814 788 2426`, Port Harcourt, Nigeria.
@@ -131,6 +131,8 @@ Images are pre-resized and compressed. Keep new work around 1400 to 1600px on th
 - Clip-path media reveals on cards, the projects feature image and the about portrait.
 - Page-to-page curtain transition plus a soft page entrance after load.
 - Scroll progress line, animated section rules, image parallax and counter animations.
+- Flicko header with a sliding highlight that follows hover, rolling nav labels, a pulsing "Let's chat" button with a shine sweep, a live scroll progress line and hide-on-scroll-down behaviour.
+- Centred footer composition with stacked, evenly spaced columns on small screens.
 - Mouse drift on the intro hero portrait and ghost name, drift on the rotating hero words, cursor-following card image drift and magnetic links.
 - Cursor that grows into a labelled bubble ("View", "Email", "Call") over key targets.
 - Rotating home hero words with generated ghost tracks and hover dimming of siblings.
