@@ -138,7 +138,7 @@ Images are pre-resized and compressed. Keep new work around 1400 to 1600px on th
 - Rotating home hero words with generated ghost tracks and hover dimming of siblings.
 - Infinite client marquee in Flicko with an edge fade, hover pause and drag-to-scrub with spring back, including Lovely Love Treats.
 - Skills accordion on About: Flicko titles, one open at a time, short explanations and `aria-expanded` state.
-- About reel that autoplays muted when it enters view, pauses when it leaves, and exposes pause and sound controls.
+- About reel that autoplays muted when it enters view, pauses when it leaves, and shows overlaid pause and sound controls with a live state line.
 - Tool logo banner on About: 36 icon tiles in a seamless marquee with an edge fade, hover pause, hover lift and reduced-motion fallback.
 - Floating Photoshop, Illustrator, InDesign, Figma, Webflow and Canva discs around the About portrait.
 - Sticky project filters with URL sync (`?filter=web3`), animated active underline and an empty state.

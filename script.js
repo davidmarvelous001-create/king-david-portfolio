@@ -975,6 +975,7 @@
     const muteBtn = $("[data-reel-mute]", reel);
     const playLabel = $("[data-reel-play-label]", reel);
     const muteLabel = $("[data-reel-mute-label]", reel);
+    const statusEl = $("[data-reel-status]", reel);
     let loaded = false;
     let playing = false;
     let muted = true;
@@ -994,6 +995,7 @@
       playBtn.classList.toggle("is-paused", !playing);
       if (playLabel) playLabel.textContent = playing ? "Pause" : "Play";
       playBtn.setAttribute("aria-label", playing ? "Pause video" : "Play video");
+      syncStatus();
     };
 
     const syncMute = () => {
@@ -1001,6 +1003,15 @@
       muteBtn.classList.toggle("is-on", !muted);
       if (muteLabel) muteLabel.textContent = muted ? "Sound on" : "Mute";
       muteBtn.setAttribute("aria-label", muted ? "Turn sound on" : "Mute video");
+      syncStatus();
+    };
+
+    const syncStatus = () => {
+      if (frame) frame.classList.toggle("is-paused", loaded && !playing);
+      if (!statusEl) return;
+      if (!loaded) statusEl.textContent = "Muted";
+      else if (!playing) statusEl.textContent = "Paused";
+      else statusEl.textContent = muted ? "Muted" : "Sound on";
     };
 
     const load = () => {
