@@ -265,19 +265,10 @@
   /* ---------- Header state ---------- */
   const header = $("[data-header]");
   if (header) {
-    let lastY = window.scrollY;
     const onScroll = () => {
       const y = window.scrollY;
       header.classList.toggle("is-stuck", y > 24);
-
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      header.style.setProperty("--scroll", max > 0 ? Math.min(y / max, 1).toFixed(4) : "0");
-
-      if (!body.classList.contains("is-locked")) {
-        if (y > 420 && y > lastY + 6) header.classList.add("is-hidden");
-        else if (y < lastY - 6 || y < 120) header.classList.remove("is-hidden");
-      }
-      lastY = y;
+      body.classList.toggle("is-scrolled", y > 24);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -326,8 +317,8 @@
     if (menuLabel) menuLabel.textContent = open ? "Close" : "Menu";
     menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     body.classList.toggle("is-locked", open);
-    header.classList.remove("is-hidden");
     header.classList.toggle("is-stuck", open || window.scrollY > 24);
+    body.classList.toggle("is-scrolled", open || window.scrollY > 24);
     if (open) {
       const first = $("a", menu);
       if (first) setTimeout(() => first.focus({ preventScroll: true }), 350);

@@ -131,8 +131,8 @@ Images are pre-resized and compressed. Keep new work around 1400 to 1600px on th
 - Clip-path media reveals on cards, the projects feature image and the about portrait.
 - Page-to-page curtain transition plus a soft page entrance after load.
 - Scroll progress line, animated section rules, image parallax and counter animations.
-- Flicko header with a sliding highlight that follows hover, rolling nav labels, a pulsing "Let's chat" button with a shine sweep, a live scroll progress line and hide-on-scroll-down behaviour.
-- Centred footer composition with stacked, evenly spaced columns on small screens.
+- Flicko header with a sliding highlight that follows hover, rolling nav labels, a pulsing "Let's chat" button with a shine sweep, a live scroll progress line and a permanently sticky bar.
+- Split footer: brand and description on the left, sitemap, social and contact columns on the right, a single baseline row, and a stacked mobile layout.
 - Mouse drift on the intro hero portrait and ghost name, drift on the rotating hero words, cursor-following card image drift and magnetic links.
 - Cursor that grows into a labelled bubble ("View", "Email", "Call") over key targets.
 - Rotating home hero words with generated ghost tracks and hover dimming of siblings.
