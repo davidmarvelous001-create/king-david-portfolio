@@ -15,7 +15,7 @@
       year: "2025",
       img: "assets/img/work-cadenza-billboard.jpg",
       alt: "Cadenza by Velox billboard reading Your Family Deserves a Plot",
-      desc: "A high-impact sales campaign for ₦20M plots off Obiri-Ikwere. Family-first headline, glossy price treatment and the C of O assurance up front. Property enquiries rose 8% in the three weeks after launch.",
+      desc: "A high-impact sales campaign for â‚¦20M plots off Obiri-Ikwere. Family-first headline, glossy price treatment and the C of O assurance up front. Property enquiries rose 8% in the three weeks after launch.",
     },
     delight: {
       title: "Delight Hibiscus Drink",
@@ -958,11 +958,157 @@
         `Hi King David,\n\n${message}\n\n${name}\n${email}`
       );
       const status = $("[data-form-status]", form);
-      if (status) status.textContent = "Opening your email app…";
+      if (status) status.textContent = "Opening your email appâ€¦";
       window.location.href = `mailto:david4ayomipo@gmail.com?subject=${subject}&body=${bodyText}`;
       setTimeout(() => {
         if (status) status.textContent = "No email app? Write to david4ayomipo@gmail.com directly.";
       }, 1800);
+    });
+  }
+
+  /* ---------- About reel ---------- */
+  const reel = $("[data-reel]");
+  if (reel) {
+    const frame = $("[data-reel-frame]", reel);
+    const iframe = $("[data-reel-iframe]", reel);
+    const playBtn = $("[data-reel-play]", reel);
+    const muteBtn = $("[data-reel-mute]", reel);
+    const playLabel = $("[data-reel-play-label]", reel);
+    const muteLabel = $("[data-reel-mute-label]", reel);
+    let loaded = false;
+    let playing = false;
+    let muted = true;
+    let userPaused = false;
+    let inView = false;
+
+    const command = (func) => {
+      if (!loaded || !iframe || !iframe.contentWindow) return;
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: "command", func: func, args: "" }),
+        "*"
+      );
+    };
+
+    const syncPlay = () => {
+      if (!playBtn) return;
+      playBtn.classList.toggle("is-paused", !playing);
+      if (playLabel) playLabel.textContent = playing ? "Pause" : "Play";
+      playBtn.setAttribute("aria-label", playing ? "Pause video" : "Play video");
+    };
+
+    const syncMute = () => {
+      if (!muteBtn) return;
+      muteBtn.classList.toggle("is-on", !muted);
+      if (muteLabel) muteLabel.textContent = muted ? "Sound on" : "Mute";
+      muteBtn.setAttribute("aria-label", muted ? "Turn sound on" : "Mute video");
+    };
+
+    const load = () => {
+      if (loaded || !iframe) return;
+      loaded = true;
+      if (frame) frame.classList.add("is-loading");
+      if (iframe.dataset.src) iframe.src = iframe.dataset.src;
+    };
+
+    const play = () => {
+      load();
+      command("playVideo");
+      playing = true;
+      syncPlay();
+    };
+
+    const pause = () => {
+      command("pauseVideo");
+      playing = false;
+      syncPlay();
+    };
+
+    if (iframe) {
+      iframe.addEventListener("load", () => {
+        if (frame) frame.classList.add("is-ready");
+        if (iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+            JSON.stringify({ event: "listening", id: "reel", channel: "widget" }),
+            "*"
+          );
+        }
+        if (!muted) command("unMute");
+        if (playing && !userPaused) command("playVideo");
+      });
+    }
+
+    if (playBtn) {
+      playBtn.addEventListener("click", () => {
+        if (playing) {
+          userPaused = true;
+          pause();
+        } else {
+          userPaused = false;
+          play();
+        }
+      });
+    }
+
+    if (muteBtn) {
+      muteBtn.addEventListener("click", () => {
+        muted = !muted;
+        load();
+        command(muted ? "mute" : "unMute");
+        syncMute();
+      });
+    }
+
+    // Mirror the player's real state when YouTube reports it.
+    window.addEventListener("message", (event) => {
+      if (!iframe || event.source !== iframe.contentWindow) return;
+      let data = event.data;
+      if (typeof data === "string") {
+        try {
+          data = JSON.parse(data);
+        } catch (error) {
+          return;
+        }
+      }
+      if (!data || !data.info) return;
+      if (typeof data.info.playerState === "number") {
+        const wasPlaying = playing;
+        playing = data.info.playerState === 1 || data.info.playerState === 3;
+        // A pause triggered inside the player while the reel is on screen is a
+        // deliberate choice, so do not auto-resume it on the next visit. A play
+        // started inside the player clears that choice again.
+        if (wasPlaying && !playing && inView) userPaused = true;
+        if (!wasPlaying && playing && inView) userPaused = false;
+        syncPlay();
+      }
+      if (typeof data.info.muted === "boolean") {
+        muted = data.info.muted;
+        syncMute();
+      }
+    });
+
+    if ("IntersectionObserver" in window && !reduced) {
+      const rio = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            inView = entry.isIntersecting;
+            if (inView) {
+              if (!userPaused) play();
+            } else {
+              pause();
+            }
+          });
+        },
+        { threshold: 0.4 }
+      );
+      rio.observe(frame || reel);
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        pause();
+      } else if (inView && !userPaused) {
+        play();
+      }
     });
   }
 

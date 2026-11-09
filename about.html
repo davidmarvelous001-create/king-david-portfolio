@@ -9,9 +9,10 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.youtube-nocookie.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;600&family=Roboto+Slab:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<noscript><style>.preloader{display:none!important}.reveal{opacity:1!important;transform:none!important}body.is-locked{overflow:auto!important}</style></noscript>
+<noscript><style>.preloader{display:none!important}.reveal{opacity:1!important;transform:none!important}body.is-locked{overflow:auto!important}.reel__controls,.reel__caption{display:none!important}</style></noscript>
 </head>
 <body data-nav="light">
 
@@ -214,6 +215,50 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Reel -->
+  <section class="reel section" data-reel aria-labelledby="reel-title">
+    <div class="reel__grid">
+      <div class="reel__intro">
+        <p class="kicker reveal">In conversation</p>
+        <h2 class="reel__title reveal" id="reel-title" data-delay="1">The thinking,<br><em>out loud</em>.</h2>
+        <p class="reel__copy reveal" data-delay="2">
+          A short clip on how I work, from the first reference to the final file.
+        </p>
+        <a class="reel__link reveal" data-delay="3" href="https://www.youtube.com/shorts/g4saDDz_Qaw" target="_blank" rel="noopener noreferrer">
+          Watch on YouTube
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+      <figure class="reel__stage reveal" data-delay="1">
+        <div class="reel__frame" data-reel-frame>
+          <iframe
+            class="reel__iframe"
+            data-reel-iframe
+            data-src="https://www.youtube-nocookie.com/embed/g4saDDz_Qaw?autoplay=1&amp;mute=1&amp;controls=0&amp;rel=0&amp;playsinline=1&amp;enablejsapi=1&amp;loop=1&amp;playlist=g4saDDz_Qaw"
+            title="David Olufemi on how he approaches design work"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            loading="lazy"></iframe>
+          <a class="reel__fallback" href="https://www.youtube.com/shorts/g4saDDz_Qaw" target="_blank" rel="noopener noreferrer">Play the reel on YouTube</a>
+        </div>
+        <div class="reel__controls">
+          <button class="reel__btn is-paused" type="button" data-reel-play aria-label="Play video">
+            <svg class="reel__icon reel__icon--pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>
+            <svg class="reel__icon reel__icon--play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+            <span data-reel-play-label>Play</span>
+          </button>
+          <button class="reel__btn" type="button" data-reel-mute aria-label="Turn sound on">
+            <svg class="reel__icon reel__icon--mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m16 9 5 6M21 9l-5 6"/></svg>
+            <svg class="reel__icon reel__icon--sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a9 9 0 0 1 0 12"/></svg>
+            <span data-reel-mute-label>Sound on</span>
+          </button>
+        </div>
+        <figcaption class="reel__caption">Plays muted as it enters view. Pause or turn the sound on whenever you like.</figcaption>
+      </figure>
     </div>
   </section>
 
