@@ -626,6 +626,54 @@
     });
   }
 
+  /* ---------- Live text pointer response ---------- */
+  if (isFinePointer && !reduced) {
+    const liveText = $$("h1, h2").filter(
+      (el) => !el.classList.contains("sr-only") && !el.closest(".lightbox") && el.textContent.trim()
+    );
+    const footerWord = $(".footer__word");
+    if (footerWord) liveText.push(footerWord);
+
+    liveText.forEach((el) => {
+      el.classList.add("text-live");
+      let tx = 0, ty = 0, x = 0, y = 0, raf = null;
+      const loop = () => {
+        x += (tx - x) * 0.12;
+        y += (ty - y) * 0.12;
+        if (Math.abs(tx - x) < 0.02 && Math.abs(ty - y) < 0.02) {
+          x = 0;
+          y = 0;
+          el.style.translate = "";
+          el.style.setProperty("--lx", "0");
+          el.style.setProperty("--ly", "0");
+          raf = null;
+          return;
+        }
+        el.style.translate = `${x.toFixed(2)}px ${y.toFixed(2)}px`;
+        el.style.setProperty("--lx", x.toFixed(2));
+        el.style.setProperty("--ly", y.toFixed(2));
+        raf = requestAnimationFrame(loop);
+      };
+      el.addEventListener("mouseenter", () => el.classList.add("is-live"));
+      el.addEventListener(
+        "mousemove",
+        (e) => {
+          const r = el.getBoundingClientRect();
+          tx = Math.max(-9, Math.min(9, (e.clientX - (r.left + r.width / 2)) * 0.05));
+          ty = Math.max(-6, Math.min(6, (e.clientY - (r.top + r.height / 2)) * 0.05));
+          if (!raf) raf = requestAnimationFrame(loop);
+        },
+        { passive: true }
+      );
+      el.addEventListener("mouseleave", () => {
+        tx = 0;
+        ty = 0;
+        el.classList.remove("is-live");
+        if (!raf) raf = requestAnimationFrame(loop);
+      });
+    });
+  }
+
   /* ---------- Client band drag ---------- */
   const trust = $("[data-trust]");
   const trustViewport = $("[data-trust-viewport]", trust);

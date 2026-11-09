@@ -134,6 +134,7 @@ Images are pre-resized and compressed. Keep new work around 1400 to 1600px on th
 - Flicko header with a sliding highlight that follows hover, rolling nav labels, a pulsing "Let's chat" button with a shine sweep, a live scroll progress line and a permanently sticky bar.
 - Footer with sitemap, contact and social columns above a full-width `KING DAVID.` baseline wordmark, a single bottom meta row, and a `KING / DAVID.` stack on phones.
 - Mouse drift on the intro hero portrait and ghost name, drift on the rotating hero words, cursor-following card image drift and magnetic links.
+- Every page's main headings lean toward the pointer, with a faint counter-drift on outlined and italic words. Off on touch and reduced-motion.
 - Cursor that grows into a labelled bubble ("View", "Email", "Call") over key targets.
 - Rotating home hero words with generated ghost tracks and hover dimming of siblings.
 - Infinite client marquee in Flicko with an edge fade, hover pause and drag-to-scrub with spring back, including Lovely Love Treats.

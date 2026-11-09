@@ -3164,6 +3164,30 @@ body.is-loaded main { animation: pageIn 0.85s var(--ease) both; }
 }
 .hero-word:nth-child(2) .hero-word__solid { padding-right: 0.02em; }
 
+/* ---------- Live text pointer response ---------- */
+.text-live.is-live { will-change: translate; }
+.text-live em,
+.text-live .stroke,
+.text-live .outline,
+.text-live .q,
+.text-live .asterisk,
+.text-live.cta__title > span,
+.text-live.footer__word > span {
+  position: relative;
+  left: calc(var(--lx, 0) * -0.55px);
+  top: calc(var(--ly, 0) * -0.55px);
+}
+.about-hero__title .stroke,
+.statement__head .outline,
+.reel__title em {
+  transition: color 0.45s var(--ease);
+}
+@media (hover: hover) {
+  .about-hero__title:hover .stroke,
+  .reel__title:hover em { color: rgba(244, 244, 241, 0.12); }
+  .statement__head:hover .outline { color: rgba(244, 244, 241, 0.1); }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1080px) {
   .statement__grid { grid-template-columns: 1fr; align-items: start; }
