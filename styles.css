@@ -2303,28 +2303,21 @@ body.is-loaded .hero__meta { animation: softUp 0.8s var(--ease) 0.15s backwards;
   color: rgba(244, 241, 234, 0.5);
   white-space: nowrap;
 }
-.reel__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(340px, 31vw, 480px);
-  gap: clamp(24px, 3vw, 48px);
-  align-items: stretch;
-}
-.reel__intro {
-  position: relative;
-  z-index: 2;
+.reel__band {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: clamp(36px, 5vw, 72px);
+  align-items: center;
+  text-align: center;
 }
 .reel__title {
   font-family: var(--display);
   font-weight: 400;
-  font-size: clamp(44px, 7.4vw, 132px);
+  font-size: clamp(40px, 5.8vw, 88px);
   line-height: 0.95;
   letter-spacing: -0.015em;
   text-transform: uppercase;
   margin: 0;
+  text-wrap: balance;
 }
 .reel__title span {
   display: inline-block;
@@ -2338,40 +2331,18 @@ body.is-loaded .hero__meta { animation: softUp 0.8s var(--ease) 0.15s backwards;
   -webkit-text-stroke: 2px var(--paper);
 }
 .reel__copy {
-  margin-top: clamp(18px, 2.2vw, 26px);
-  max-width: 38ch;
+  margin-top: clamp(16px, 2vw, 24px);
+  max-width: 46ch;
   font-size: clamp(14px, 1.15vw, 16px);
   line-height: 1.6;
   color: rgba(244, 241, 234, 0.62);
-  text-wrap: balance;
-}
-.reel__quote {
-  margin: clamp(30px, 3.6vw, 44px) 0 0;
-  padding-top: clamp(20px, 2.4vw, 28px);
-  border-top: 1px solid rgba(244, 241, 234, 0.16);
-  max-width: 34ch;
-}
-.reel__quote figcaption {
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(244, 241, 234, 0.42);
-  margin-bottom: 10px;
-}
-.reel__quote blockquote {
-  font-family: var(--display);
-  font-style: italic;
-  font-size: clamp(18px, 1.55vw, 23px);
-  line-height: 1.2;
-  letter-spacing: -0.005em;
-  color: rgba(244, 241, 234, 0.86);
   text-wrap: balance;
 }
 .reel__link {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  margin-top: clamp(24px, 3vw, 36px);
+  margin-top: clamp(22px, 2.8vw, 34px);
   padding-bottom: 6px;
   border-bottom: 1px solid rgba(244, 241, 234, 0.28);
   font-size: 11px;
@@ -2385,32 +2356,30 @@ body.is-loaded .hero__meta { animation: softUp 0.8s var(--ease) 0.15s backwards;
 .reel__link:hover svg { transform: translate(2px, -2px); }
 .reel__link:focus-visible { outline: 2px solid var(--paper); outline-offset: 4px; }
 .reel__stage {
-  width: calc(100% + clamp(16px, 2.4vw, 32px));
-  justify-self: end;
-  align-self: start;
-  margin: 0;
   position: relative;
-  z-index: 1;
+  width: clamp(340px, 32vw, 480px);
+  max-width: 100%;
+  margin: clamp(36px, 5vw, 64px) auto 0;
+  padding-bottom: clamp(96px, 12vw, 156px);
 }
-.reel__stage::before {
-  content: "";
+.reel__reflection {
   position: absolute;
-  inset: 20px 20px -20px -20px;
-  z-index: -1;
-  border-radius: var(--radius);
-  background: var(--paper);
-}
-.reel__stage::after {
-  content: "";
-  position: absolute;
-  top: 0;
   left: 0;
   right: 0;
-  height: clamp(110px, 9vw, 160px);
-  z-index: 2;
-  border-radius: var(--radius) var(--radius) 0 0;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.97), rgba(10, 10, 10, 0.7) 40%, transparent);
+  bottom: 0;
+  height: clamp(96px, 12vw, 156px);
+  overflow: hidden;
   pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.32), transparent 74%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.32), transparent 74%);
+}
+.reel__reflection span {
+  position: absolute;
+  inset: 0;
+  background: url("assets/img/reel-poster.jpg") center bottom / cover no-repeat;
+  transform: scaleY(-1);
+  filter: blur(3px) saturate(0.4);
+  opacity: 0.55;
 }
 .reel__frame {
   position: relative;
@@ -2422,6 +2391,17 @@ body.is-loaded .hero__meta { animation: softUp 0.8s var(--ease) 0.15s backwards;
   outline: 1px solid rgba(244, 241, 234, 0.12);
   outline-offset: -1px;
   box-shadow: 0 34px 90px rgba(0, 0, 0, 0.5);
+}
+.reel__frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  background:
+    radial-gradient(125% 90% at 50% 42%, transparent 54%, rgba(0, 0, 0, 0.44) 100%),
+    linear-gradient(180deg, rgba(10, 10, 10, 0.95), rgba(10, 10, 10, 0.7) 52%, transparent) top / 100% clamp(132px, 23%, 190px) no-repeat;
+  pointer-events: none;
 }
 .reel__frame::after {
   content: "";
@@ -3205,10 +3185,8 @@ body.is-loaded main { animation: pageIn 0.85s var(--ease) both; }
   .header-cta { padding: 10px 14px; font-size: 13px; }
   .footer__cols { gap: clamp(24px, 5vw, 48px); }
 
-  .reel__grid { grid-template-columns: 1fr; gap: 40px; align-items: start; }
-  .reel__intro { display: block; }
-  .reel__title { font-size: clamp(34px, 10.8vw, 64px); }
-  .reel__stage { justify-self: center; width: min(100%, 360px); margin-left: 0; }
+  .reel__title { font-size: clamp(32px, 9vw, 60px); }
+  .reel__stage { width: min(100%, 420px); margin-left: auto; margin-right: auto; }
 
   .hero__words { margin: clamp(22px, 5vh, 48px) 0; }
 
@@ -3345,6 +3323,7 @@ body.is-loaded main { animation: pageIn 0.85s var(--ease) both; }
   .cta__title { font-size: clamp(34px, 11vw, 56px); }
   .footer__socials { gap: 8px; }
 
+  .reel__title { font-size: clamp(30px, 9.8vw, 46px); }
   .reel__stage { width: min(100%, 340px); }
   .reel__overlay { padding: 10px 12px; }
   .reel__btn { height: 32px; padding: 0 10px; font-size: 9.5px; }
