@@ -13,7 +13,7 @@ problem-first, plain-language copy.
 
 | File | Layout |
 | --- | --- |
-| `index.html` | Home. Full-height portrait hero with ghost name, floating cards and a moving Flicko client marquee; then the rotating discipline words (Branding / Campaigns / Packaging) with ghost echoes, selected work, dark stats block, client testimonials and monochrome CTA |
+| `index.html` | Home. Full-height portrait hero with ghost name, floating cards and a moving Flicko client marquee; then the rotating discipline words (Branding / Campaigns / Packaging) with ghost echoes, selected work, dark stats block and monochrome CTA |
 | `projects.html` | Projects. Split hero with a bleed image and hand-written note, sticky text filters with counts, two-column uniform grid of 21 projects where every image box is 4:5, See More paging and a See the full archive link |
 | `about.html` | About. Full-height dark hero, portrait and short bio, a grey skills accordion, two experience rows and a moving tool logo banner |
 | `contact.html` | Contact. Full-height dark hero, contact details including WhatsApp, and a mailto form |
@@ -47,8 +47,9 @@ The bio, project list, case-study details and metrics come from the supplied por
 - Delight Hibiscus label delivered print-ready in 24 hours.
 
 Availability is written as **Available for new projects** across the site. The three testimonial
-cards on Home are placeholders in `index.html`, marked with `PLACEHOLDER` comments; replace the
-quotes, names and roles before launch.
+cards on Home are placeholders in `index.html`, marked with `PLACEHOLDER` comments. The section
+is currently hidden (the `hidden` attribute on `section.testimonials`); replace the quotes,
+names and roles, then remove `hidden` to bring it back.
 
 The latest project images were refreshed from the shared Drive folder. The branding set now
 includes Lovely Love Treats (chocolate cake, meatpie and chinchin), Velox Vest merch and the
@@ -164,7 +165,7 @@ Images are pre-resized and compressed. Keep new work around 1400 to 1600px on th
 - Footer with sitemap, contact and social columns above a full-width `KING DAVID.` baseline wordmark, a single bottom meta row, and a `KING / DAVID.` stack on phones.
 - Mouse drift on the intro hero portrait and ghost name, drift on the rotating hero words, cursor-following card image drift and magnetic links.
 - Every page's main headings lean toward the pointer, with a faint counter-drift on outlined and italic words. Off on touch and reduced-motion.
-- Client testimonial cards on Home with a subtle hover lift; the quotes and names are placeholders.
+- Client testimonial cards on Home with a subtle hover lift; hidden until real quotes arrive (remove `hidden` on `section.testimonials`).
 - Cursor that grows into a labelled bubble ("View", "Email", "Call") over key targets.
 - Rotating home hero words with generated ghost tracks and hover dimming of siblings.
 - Infinite client marquee in Flicko with an edge fade, hover pause and drag-to-scrub with spring back, including Lovely Love Treats.
