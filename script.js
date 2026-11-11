@@ -15,7 +15,7 @@
       year: "2025",
       img: "assets/img/work-cadenza-billboard.jpg",
       alt: "Cadenza by Velox billboard reading Your Family Deserves a Plot",
-      desc: "A high-impact sales campaign for â‚¦20M plots off Obiri-Ikwere. Family-first headline, glossy price treatment and the C of O assurance up front. Property enquiries rose 8% in the three weeks after launch.",
+      desc: "A sales campaign for ₦20M plots off Obiri-Ikwere. The headline leads with family, the price is impossible to miss, and the C of O sits up front where it answers the objection. Enquiries rose 8% in the three weeks after launch.",
     },
     delight: {
       title: "Delight Hibiscus Drink",
@@ -47,7 +47,7 @@
       year: "2025",
       img: "assets/img/work-bora.jpg",
       alt: "BORA by Eneka new price alert flyer",
-      desc: "A price-led launch flyer for a serviced plot offer. Big number, clear title and a human photo to keep it warm rather than corporate.",
+      desc: "A launch flyer for a serviced plot offer where the price is the headline. Big number, clear title, and a portrait that keeps the offer human instead of corporate.",
     },
     gardenia: {
       title: "Gardenia Pre-Launch",
@@ -55,7 +55,7 @@
       year: "2025",
       img: "assets/img/work-gardenia.jpg",
       alt: "Gardenia pre-launch offer flyer",
-      desc: "A green, balloon-led pre-launch campaign built to make a land offer feel light and celebratory instead of heavy and technical.",
+      desc: "A pre-launch campaign that makes a land offer feel like an invitation, not a legal document. Green palette, balloons and a date-led layout.",
     },
     luxe: {
       title: "LUXE Apartments",
@@ -103,7 +103,7 @@
       year: "2024",
       img: "assets/img/work-boys.jpg",
       alt: "The Boys Web3 website design",
-      desc: "A comic-book inspired token site with section-by-section storytelling and a playful, character-driven art direction.",
+      desc: "A token site built like a comic book. Each scroll is a panel, each section a beat, so the story carries people to the buy button.",
     },
     wally: {
       title: "Wally the Alligator",
@@ -112,14 +112,6 @@
       img: "assets/img/work-wally.jpg",
       alt: "Wally the Alligator Web3 website design",
       desc: "A bright, swamp-green Web3 landing page. Step-by-step buying guide, character art and a community section that keeps the tone light.",
-    },
-    munchy: {
-      title: "Munchy",
-      cat: "Web3 / UI",
-      year: "2024",
-      img: "assets/img/work-munchy.jpg",
-      alt: "Munchy Web3 website design",
-      desc: "A candy-coloured token site with a soft pink palette and a clean, scannable tokenomics layout.",
     },
     edu: {
       title: "Velox Vest Education",
@@ -184,14 +176,6 @@
       img: "assets/img/work-delight-range.jpg",
       alt: "Delight hibiscus drink bottle range",
       desc: "A range shot that proves the label system holds across a full product line, from single bottle to shelf set.",
-    },
-    flyer: {
-      title: "Velox Vest Product Flyer",
-      cat: "Digital / Social",
-      year: "2025",
-      img: "assets/img/work-flyer.jpg",
-      alt: "Velox Vest product flyer with location pin",
-      desc: "A numbered product flyer series covering four estates, tied together with a glowing location pin and a consistent footer.",
     },
   };
 
@@ -1006,7 +990,7 @@
         `Hi King David,\n\n${message}\n\n${name}\n${email}`
       );
       const status = $("[data-form-status]", form);
-      if (status) status.textContent = "Opening your email appâ€¦";
+      if (status) status.textContent = "Opening your email app…";
       window.location.href = `mailto:david4ayomipo@gmail.com?subject=${subject}&body=${bodyText}`;
       setTimeout(() => {
         if (status) status.textContent = "No email app? Write to david4ayomipo@gmail.com directly.";

@@ -1,19 +1,20 @@
 # KING DAVID. Portfolio Vol. 02
 
-A four-page portfolio for **David Olufemi**, a graphic designer in Port Harcourt, Nigeria.
+A four-page portfolio for **David Olufemi**, a design lead and graphic designer in Port Harcourt, Nigeria.
 Editorial display type, a black / grey / white monochrome system and generous whitespace,
 built with plain HTML, CSS and JavaScript, with no framework and no build step.
 
 Design references: [fatfish.ca](https://fatfish.ca/en/) for the typography and home/projects
 frames, [Ameer Bamigbayan](https://ameerbamigbayan.com/) for the monochrome fluency and the
-about/contact frames.
+about/contact frames. Content reference: [designerhq.app](https://designerhq.app/) for
+problem-first, plain-language copy.
 
 ## Pages
 
 | File | Layout |
 | --- | --- |
-| `index.html` | Home. Full-height portrait hero with ghost name, floating cards and a moving Flicko client marquee; then the rotating discipline words (Branding / Campaigns / Packaging) with ghost echoes, selected work, dark stats block and monochrome CTA |
-| `projects.html` | Projects. Split hero with a bleed image and hand-written note, sticky text filters with counts, two-column uniform grid of 21 projects where every image box is 4:5, See More paging and a See Full Works link |
+| `index.html` | Home. Full-height portrait hero with ghost name, floating cards and a moving Flicko client marquee; then the rotating discipline words (Branding / Campaigns / Packaging) with ghost echoes, selected work, dark stats block, client testimonials and monochrome CTA |
+| `projects.html` | Projects. Split hero with a bleed image and hand-written note, sticky text filters with counts, two-column uniform grid of 21 projects where every image box is 4:5, See More paging and a See the full archive link |
 | `about.html` | About. Full-height dark hero, portrait and short bio, a grey skills accordion, two experience rows and a moving tool logo banner |
 | `contact.html` | Contact. Full-height dark hero, contact details including WhatsApp, and a mailto form |
 
@@ -39,10 +40,15 @@ python -m http.server 5173
 
 The bio, project list, case-study details and metrics come from the supplied portfolio PDFs:
 
+- Design lead at Velox Real Estate, with select freelance work across drinks, food and Web3.
 - 6 years of practice, 100+ projects, 64% returning clients.
-- 4.2-day average turnaround, 3.1 revision rounds.
+- 4.2-day average turnaround from approved brief to first round.
 - 8% rise in property enquiries in three weeks after the Cadenza billboard.
 - Delight Hibiscus label delivered print-ready in 24 hours.
+
+Availability is written as **Available for new projects** across the site. The three testimonial
+cards on Home are placeholders in `index.html`, marked with `PLACEHOLDER` comments; replace the
+quotes, names and roles before launch.
 
 The latest project images were refreshed from the shared Drive folder. The branding set now
 includes Lovely Love Treats (chocolate cake, meatpie and chinchin), Velox Vest merch and the
@@ -57,7 +63,7 @@ and the WhatsApp icon beside “See the work” on the rotating Home hero.
 
 ## The 60-second edit
 
-- **Name / brand** `KING DAVID`, `King David`, `King David®` in the headers, preloaders, menu and footers.
+- **Name / brand** `KING DAVID` and `King David` in the headers, preloaders, menu and footers.
 - **Email and phone** `david4ayomipo@gmail.com` and `+234 814 788 2426` on all four pages.
 - **Social links** Instagram (`instagram.com/king_david_olufemi`), Behance
   (`behance.net/davidolufemi1`) and LinkedIn (`linkedin.com/in/king-david-olufemi`) are
@@ -135,6 +141,7 @@ Images are pre-resized and compressed. Keep new work around 1400 to 1600px on th
 - Footer with sitemap, contact and social columns above a full-width `KING DAVID.` baseline wordmark, a single bottom meta row, and a `KING / DAVID.` stack on phones.
 - Mouse drift on the intro hero portrait and ghost name, drift on the rotating hero words, cursor-following card image drift and magnetic links.
 - Every page's main headings lean toward the pointer, with a faint counter-drift on outlined and italic words. Off on touch and reduced-motion.
+- Client testimonial cards on Home with a subtle hover lift; the quotes and names are placeholders.
 - Cursor that grows into a labelled bubble ("View", "Email", "Call") over key targets.
 - Rotating home hero words with generated ghost tracks and hover dimming of siblings.
 - Infinite client marquee in Flicko with an edge fade, hover pause and drag-to-scrub with spring back, including Lovely Love Treats.
