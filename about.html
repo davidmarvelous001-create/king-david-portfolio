@@ -5,16 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About · David Olufemi</title>
 <meta name="description" content="David Olufemi is a graphic designer and design lead at Velox Real Estate. Six years, 100+ projects and 64% returning clients. Based in Port Harcourt, Nigeria.">
-<meta name="theme-color" content="#111110">
+<meta name="theme-color" content="#0c0c0b">
+<script>try{if(localStorage.getItem("kd-theme")==="light"){document.documentElement.dataset.theme="light";}}catch(e){}</script>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://www.youtube-nocookie.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;600&family=Roboto+Slab:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<noscript><style>.preloader{display:none!important}.reveal{opacity:1!important;transform:none!important}body.is-locked{overflow:auto!important}.reel__overlay{display:none!important}</style></noscript>
+<noscript><style>.preloader{display:none!important}.reveal{opacity:1!important;transform:none!important;filter:none!important}body.is-locked{overflow:auto!important}.reel__overlay{display:none!important}</style></noscript>
 </head>
-<body data-nav="light">
+<body>
 
 <div class="page-veil" aria-hidden="true"></div>
 
@@ -47,6 +48,15 @@
       <span class="header-cta__label">Let's chat</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
     </a>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2"/>
+        <path d="M12 2.6v2.1M12 19.3v2.1M2.6 12h2.1M19.3 12h2.1M5.4 5.4l1.5 1.5M17.1 17.1l1.5 1.5M18.6 5.4l-1.5 1.5M6.9 17.1l-1.5 1.5"/>
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.4 14.3A8.4 8.4 0 0 1 9.7 3.6a8.4 8.4 0 1 0 10.7 10.7Z"/>
+      </svg>
+    </button>
     <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="menu" aria-label="Open menu">
       <i aria-hidden="true"></i> <span>Menu</span>
     </button>

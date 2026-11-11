@@ -288,6 +288,51 @@
     }
   }
 
+  /* ---------- Theme ---------- */
+  const root = document.documentElement;
+  const THEME_KEY = "kd-theme";
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const themeButtons = $$("[data-theme-toggle]");
+
+  const getTheme = () => (root.dataset.theme === "light" ? "light" : "dark");
+
+  const paintTheme = (theme) => {
+    root.dataset.theme = theme;
+    if (themeMeta) {
+      themeMeta.setAttribute("content", theme === "light" ? "#f4f4f1" : "#0c0c0b");
+    }
+    themeButtons.forEach((btn) => {
+      const next = theme === "light" ? "dark" : "light";
+      btn.setAttribute("aria-label", `Switch to ${next} mode`);
+      btn.setAttribute("title", `Switch to ${next} mode`);
+      btn.setAttribute("aria-pressed", theme === "light" ? "true" : "false");
+    });
+  };
+
+  const setTheme = (theme, persist) => {
+    if (persist) {
+      try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+    }
+    if (document.startViewTransition && !reduced) {
+      const btn = themeButtons[0];
+      if (btn) {
+        const r = btn.getBoundingClientRect();
+        root.style.setProperty("--vt-x", `${Math.round(r.left + r.width / 2)}px`);
+        root.style.setProperty("--vt-y", `${Math.round(r.top + r.height / 2)}px`);
+      }
+      document.startViewTransition(() => paintTheme(theme));
+      return;
+    }
+    root.classList.add("is-theming");
+    paintTheme(theme);
+    window.setTimeout(() => root.classList.remove("is-theming"), 560);
+  };
+
+  themeButtons.forEach((btn) => {
+    btn.addEventListener("click", () => setTheme(getTheme() === "light" ? "dark" : "light", true));
+  });
+  paintTheme(getTheme());
+
   /* ---------- Menu ---------- */
   const menu = $("[data-menu]");
   const menuToggle = $("[data-menu-toggle]");
@@ -591,6 +636,8 @@
       y += (ty - y) * 0.06;
       introHero.style.setProperty("--mx", x.toFixed(3));
       introHero.style.setProperty("--my", y.toFixed(3));
+      introHero.style.setProperty("--px", `${(50 + x * 100).toFixed(1)}%`);
+      introHero.style.setProperty("--py", `${(50 + y * 100).toFixed(1)}%`);
       if (Math.abs(tx - x) > 0.001 || Math.abs(ty - y) > 0.001) {
         raf = requestAnimationFrame(loop);
       } else {

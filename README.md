@@ -74,22 +74,43 @@ and the WhatsApp icon beside “See the work” on the rotating Home hero.
 
 ## Design tokens
 
-Top of `styles.css`:
+Dark is the default theme. `styles.css` opens with the dark palette on `:root`, and the
+light palette lives under `html[data-theme="light"]`:
 
 ```css
 :root {
-  --paper: #f4f4f1;
-  --paper-2: #e8e8e4;
-  --ink: #111110;
-  --ink-2: #1d1d1b;
-  --ink-soft: #6b6b66;
+  --paper: #0c0c0b;
+  --paper-2: #151514;
+  --panel: #111110;      /* feature bands: hero, statement, CTA, footer, page heroes */
+  --panel-2: #191917;
+  --panel-fg: #f4f4f1;
+  --ink: #f4f4f1;
+  --ink-2: #cfcfc8;
+  --ink-soft: rgba(244, 244, 241, 0.58);
   --grey: #8b8b84;
   --pad: clamp(20px, 4.4vw, 72px);
 }
 ```
 
+`--paper` is the page surface and `--ink` is the text on it, so both flip together. Feature
+bands use the `--panel` / `--panel-fg` pair instead, which keeps them dark in both themes.
+Glow layers read from `--glow`, `--glow-soft` and `--glow-strong`; sticky chrome reads from
+`--glass`.
+
 The original accent variables (`--red`, `--lime`, `--cobalt`, `--tangerine`, `--plum`,
 `--pink`) are kept so existing rules still work, but they now resolve to greys, paper or ink.
+
+### Theme switch
+
+Each page has an inline script in `<head>` that applies `data-theme="light"` before first
+paint (no flash), then `script.js` handles the header toggle:
+
+- Button: `.theme-toggle` with sun/moon SVGs, marked `data-theme-toggle`, placed after
+  "Let's chat" in `.header-right`.
+- Persistence: `localStorage` key `kd-theme` (`dark` or `light`).
+- Transition: a `startViewTransition` radial wipe from the button centre, with a class-based
+  colour fade fallback where the API is unavailable.
+- `meta[name="theme-color"]` is updated to match the active surface.
 
 Type: **Flicko** (display, H1s, section heads, filters and project titles; Regular for primary
 lines and Italic for accent words), **Archivo Black** (subheads and supporting display),
@@ -133,11 +154,13 @@ Images are pre-resized and compressed. Keep new work around 1400 to 1600px on th
 
 - Intro preloader with a percentage counter (skipped within a session).
 - Word-by-word text reveals on display headings, with a blur / lift stagger.
+- Ambient radial glow on the feature bands, a slow drifting light on the statement, CTA and page heroes, a pointer-follow spotlight in the home hero and soft hover glows on cards and buttons.
 - Flicko italic accents inside the display H1s (preloaders, home name, projects, about, contact, statement, CTA and footer).
 - Clip-path media reveals on cards, the projects feature image and the about portrait.
 - Page-to-page curtain transition plus a soft page entrance after load.
 - Scroll progress line, animated section rules, image parallax and counter animations.
 - Flicko header with a sliding highlight that follows hover, rolling nav labels, a pulsing "Let's chat" button with a shine sweep, a live scroll progress line and a permanently sticky bar.
+- Light / dark toggle in the header with a radial wipe transition, saved in `localStorage` and applied before first paint.
 - Footer with sitemap, contact and social columns above a full-width `KING DAVID.` baseline wordmark, a single bottom meta row, and a `KING / DAVID.` stack on phones.
 - Mouse drift on the intro hero portrait and ghost name, drift on the rotating hero words, cursor-following card image drift and magnetic links.
 - Every page's main headings lean toward the pointer, with a faint counter-drift on outlined and italic words. Off on touch and reduced-motion.
