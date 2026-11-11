@@ -113,10 +113,13 @@ paint (no flash), then `script.js` handles the header toggle:
   colour fade fallback where the API is unavailable.
 - `meta[name="theme-color"]` is updated to match the active surface.
 
-Type: **Flicko** (display, H1s, section heads, filters and project titles; Regular for primary
-lines and Italic for accent words), **Archivo Black** (subheads and supporting display),
-**Roboto Slab** (body, 200 to 700) and **Caveat** (hand-written notes). Flicko ships with the
-project in `assets/fonts/`; the other faces load from Google Fonts.
+Type is two families. **Flicko** handles all display work (H1s, section heads, nav, filters,
+project titles, stat figures; Regular for primary lines, Italic for accent words).
+**Gilroy** does everything else, self-hosted as WOFF2 in five weights: Light (300), Regular
+(400), Medium (500/600), Bold (700) and Heavy (800). The `--heavy` token points at a
+single-weight "Gilroy Heavy" alias and `--hand` at "Gilroy Light", so the small uppercase
+labels and the annotation notes keep their own voice without a second family. No Google Fonts
+request, and Flicko + Gilroy Regular are preloaded for a clean first paint.
 
 ## Adding work
 

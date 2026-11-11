@@ -18,6 +18,65 @@
   font-display: swap;
 }
 
+/* Gilroy - supporting sans for body, UI and small labels */
+@font-face {
+  font-family: "Gilroy";
+  src: url("assets/fonts/Gilroy-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("assets/fonts/Gilroy-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("assets/fonts/Gilroy-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("assets/fonts/Gilroy-Medium.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("assets/fonts/Gilroy-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("assets/fonts/Gilroy-Heavy.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+/* Single-weight aliases so existing --heavy / --hand rules keep their look */
+@font-face {
+  font-family: "Gilroy Heavy";
+  src: url("assets/fonts/Gilroy-Heavy.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy Light";
+  src: url("assets/fonts/Gilroy-Light.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ---------- Tokens ----------
    Dark is the default theme. `--paper` is the page surface, `--ink` is the
    text on it. Feature bands (hero, statement, CTA, footer, page heroes) use
@@ -51,9 +110,9 @@
   --glass: rgba(12, 12, 11, 0.78);
 
   --display: "Flicko", "Archivo Black", "Arial Black", sans-serif;
-  --heavy: "Archivo Black", "Arial Black", sans-serif;
-  --body: "Roboto Slab", Georgia, serif;
-  --hand: "Caveat", "Segoe Script", cursive;
+  --heavy: "Gilroy Heavy", "Archivo Black", "Arial Black", sans-serif;
+  --body: "Gilroy", "Helvetica Neue", Arial, sans-serif;
+  --hand: "Gilroy Light", "Caveat", "Segoe Script", cursive;
 
   --header-h: 76px;
   --pad: clamp(20px, 4.4vw, 72px);
@@ -3625,14 +3684,16 @@ html.is-theming *::after {
 }
 
 @media (max-width: 350px) {
-  .site-header { gap: 10px; }
-  .brand { font-size: 15px; }
-  .header-right { gap: 8px; }
-  .header-cta { padding: 8px 12px; font-size: 11px; }
-  .theme-toggle { width: 30px; height: 30px; }
-  .theme-toggle__icon { width: 14px; height: 14px; }
+  .site-header { gap: 8px; padding-inline: 12px; }
+  .brand { font-size: 14px; }
+  .header-right { gap: 6px; }
+  .header-cta { padding: 7px 10px; font-size: 10.5px; gap: 6px; }
+  .header-cta svg { width: 11px; height: 11px; }
+  .header-cta__dot { display: none; }
+  .theme-toggle { width: 28px; height: 28px; }
+  .theme-toggle__icon { width: 13px; height: 13px; }
   .menu-toggle { font-size: 11px; gap: 6px; }
-  .menu-toggle i { width: 16px; }
+  .menu-toggle i { width: 15px; }
   .ih__lede { font-size: 12.5px; }
 }
 
