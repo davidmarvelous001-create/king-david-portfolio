@@ -94,7 +94,24 @@ light palette lives under `html[data-theme="light"]`:
 ```
 
 `--paper` is the page surface and `--ink` is the text on it, so both flip together. Feature
-bands use the `--panel` / `--panel-fg` pair instead, which keeps them dark in both themes.
+bands use the `--panel` / `--panel-fg` pair, which flips to a light grey surface with dark
+text under `html[data-theme="light"]`, so no section is left dark in light mode.
+
+Text and borders inside those bands read from the matching panel ramp instead of hardcoded
+white-alpha values, so they invert with the surface:
+
+| Token | Role |
+| --- | --- |
+| `--panel-strong` / `--panel-muted` | body copy, ledes |
+| `--panel-soft` / `--panel-faint` | kickers, meta rows, captions |
+| `--panel-dim` | col headings, footer baseline |
+| `--panel-line` / `--panel-line-strong` | hairlines and rules |
+| `--panel-stroke` | outlined display type |
+
+Two surfaces stay intentionally dark in both themes: `.lightbox` and `.reel__frame` (the
+video frame and its overlay/controls). They re-declare the dark panel tokens locally so media
+and controls keep their light-on-dark treatment.
+
 Glow layers read from `--glow`, `--glow-soft` and `--glow-strong`; sticky chrome reads from
 `--glass`.
 
