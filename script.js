@@ -299,7 +299,7 @@
   const paintTheme = (theme) => {
     root.dataset.theme = theme;
     if (themeMeta) {
-      themeMeta.setAttribute("content", theme === "light" ? "#f4f4f1" : "#0c0c0b");
+      themeMeta.setAttribute("content", theme === "light" ? "#ffffff" : "#0c0c0b");
     }
     themeButtons.forEach((btn) => {
       const next = theme === "light" ? "dark" : "light";

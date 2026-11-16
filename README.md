@@ -94,8 +94,12 @@ light palette lives under `html[data-theme="light"]`:
 ```
 
 `--paper` is the page surface and `--ink` is the text on it, so both flip together. Feature
-bands use the `--panel` / `--panel-fg` pair, which flips to a light grey surface with dark
-text under `html[data-theme="light"]`, so no section is left dark in light mode.
+bands use the `--panel` / `--panel-fg` pair, which flips to a white surface with dark text
+under `html[data-theme="light"]`, so no section is left dark in light mode.
+
+Light mode is pure white: `--paper` and `--panel` are `#ffffff`, with `--paper-2: #f7f7f7`
+and `--panel-2: #f5f5f5` for cards, form fields and stat cells, and a white `--glass` for
+the sticky header and filter bar. Glow alphas are lowered so the page still reads white.
 
 Text and borders inside those bands read from the matching panel ramp instead of hardcoded
 white-alpha values, so they invert with the surface:
