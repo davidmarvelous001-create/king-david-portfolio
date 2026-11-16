@@ -368,60 +368,54 @@
   if (isFinePointer && !reduced) {
     const cursor = $("[data-cursor]");
     if (cursor) {
-      const cursorLabel = document.createElement("span");
-      cursorLabel.className = "cursor__label";
-      cursor.appendChild(cursorLabel);
+      cursor.innerHTML =
+        '<svg class="cursor__arrow" viewBox="0 0 24 28" aria-hidden="true" focusable="false">' +
+        '<path d="M2 2V22.4L7.4 17.1L10.8 24.6L14.2 23L10.9 15.9L18.2 15.4Z"/>' +
+        "</svg>" +
+        '<span class="cursor__label"></span>';
 
-      let tx = -100, ty = -100, x = -100, y = -100, raf = null;
+      const cursorLabel = cursor.querySelector(".cursor__label");
+      const root = document.documentElement;
+      const textFields =
+        'input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]), textarea';
+      const interactive = "a, button, [data-work], summary, input, textarea, select, label, [role='button']";
+      let labelTarget = null;
+
       const move = (e) => {
-        tx = e.clientX;
-        ty = e.clientY;
+        if (!root.classList.contains("cursor-ready")) root.classList.add("cursor-ready");
+        cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
         cursor.classList.add("is-visible");
-        if (!raf) raf = requestAnimationFrame(loop);
-      };
-      const loop = () => {
-        x += (tx - x) * 0.18;
-        y += (ty - y) * 0.18;
-        cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-        if (Math.abs(tx - x) > 0.2 || Math.abs(ty - y) > 0.2) {
-          raf = requestAnimationFrame(loop);
-        } else {
-          raf = null;
-        }
       };
       window.addEventListener("mousemove", move, { passive: true });
+      window.addEventListener("mousedown", () => cursor.classList.add("is-down"));
+      window.addEventListener("mouseup", () => cursor.classList.remove("is-down"));
+      window.addEventListener("blur", () => cursor.classList.remove("is-visible", "is-down"));
 
-      let labelTarget = null;
       document.addEventListener("mouseover", (e) => {
-        const target = e.target.closest("[data-cursor]");
-        if (target && target !== labelTarget) {
-          labelTarget = target;
-          cursorLabel.textContent = target.dataset.cursor;
-          cursor.classList.add("is-label", "is-hover");
-        } else if (!target) {
+        const target = e.target instanceof Element ? e.target : null;
+        if (!target) return;
+
+        cursor.classList.toggle("is-text", !!target.closest(textFields));
+
+        const label = target.closest("[data-cursor]");
+        if (label && label !== labelTarget) {
+          labelTarget = label;
+          cursorLabel.textContent = label.dataset.cursor || "";
+          cursor.classList.add("is-label");
+        } else if (!label && labelTarget) {
           labelTarget = null;
           cursorLabel.textContent = "";
           cursor.classList.remove("is-label");
         }
-        if (e.target.closest("a, button, [data-work], summary, input, textarea, select")) {
-          cursor.classList.add("is-hover");
-        }
+
+        cursor.classList.toggle("is-hover", !!target.closest(interactive));
       });
-      document.addEventListener("mouseout", (e) => {
-        const target = e.target.closest("[data-cursor]");
-        if (target && (!e.relatedTarget || !target.contains(e.relatedTarget))) {
-          labelTarget = null;
-          cursorLabel.textContent = "";
-          cursor.classList.remove("is-label");
-        }
-        if (
-          e.target.closest("a, button, [data-work], summary, input, textarea, select") &&
-          (!e.relatedTarget || !e.target.closest("a, button, [data-work], summary, input, textarea, select").contains(e.relatedTarget))
-        ) {
-          cursor.classList.remove("is-hover");
-        }
+
+      document.addEventListener("mouseleave", () => {
+        labelTarget = null;
+        cursorLabel.textContent = "";
+        cursor.classList.remove("is-visible", "is-down", "is-hover", "is-label", "is-text");
       });
-      document.addEventListener("mouseleave", () => cursor.classList.remove("is-visible"));
     }
   }
 

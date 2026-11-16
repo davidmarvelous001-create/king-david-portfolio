@@ -186,7 +186,7 @@ Images are pre-resized and compressed. Keep new work around 1400 to 1600px on th
 - Mouse drift on the intro hero portrait and ghost name, drift on the rotating hero words, cursor-following card image drift and magnetic links.
 - Every page's main headings lean toward the pointer, with a faint counter-drift on outlined and italic words. Off on touch and reduced-motion.
 - Client testimonial cards on Home with a subtle hover lift; hidden until real quotes arrive (remove `hidden` on `section.testimonials`).
-- Cursor that grows into a labelled bubble ("View", "Email", "Call") over key targets.
+- Arrow-shaped cursor in place of the native pointer, with a small label pill ("View", "Email", "Call") over key targets. The native I-beam returns over text fields, and touch devices or `prefers-reduced-motion` keep the system pointer.
 - Rotating home hero words with generated ghost tracks and hover dimming of siblings.
 - Infinite client marquee in Flicko with an edge fade, hover pause and drag-to-scrub with spring back, including Lovely Love Treats.
 - Skills accordion on About: Flicko titles, one open at a time, short explanations and `aria-expanded` state.
@@ -217,5 +217,5 @@ assets/         favicon, tool icon sprite, fonts and optimised images
 
 - Pages work without JavaScript: the preloader and reveals are hidden by `<noscript>` rules,
   and all content remains in the HTML.
-- No external JavaScript dependencies; Google Fonts is the only third-party request.
+- No external JavaScript or font requests; everything is served from `assets/`.
 - The form does not send anything to a server. It opens the visitor's email app.
