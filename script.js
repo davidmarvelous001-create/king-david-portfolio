@@ -23,7 +23,7 @@
       year: "2026",
       img: "assets/img/work-delight-bottle.jpg",
       alt: "Delight hibiscus drink bottle with fruit and spices",
-      desc: "A label that lets the product name do the talking. Red, green and white palette, hand-drawn lettering and ingredient imagery that signals 'real' before you read a word. Brief to print-ready in 24 hours.",
+      desc: "A label that lets the product name do the talking. Red, green and white palette, hand drawn lettering and ingredient imagery that signals 'real' before you read a word. Brief to print ready in 24 hours.",
     },
     fwog: {
       title: "fwog on sol",
@@ -31,14 +31,14 @@
       year: "2024",
       img: "assets/img/work-fwog.jpg",
       alt: "fwog on sol Web3 website design",
-      desc: "A playful, illustration-led landing page for a Solana meme coin. Chunky type, cartoon characters and a tokenomics section that stays readable without killing the joke.",
+      desc: "A playful, illustration led landing page for a Solana meme coin. Chunky type, cartoon characters and a tokenomics section that stays readable without killing the joke.",
     },
     "velox-vest": {
-      title: "Velox Vest Co-Ownership",
+      title: "Velox Vest Co Ownership",
       cat: "Digital / Social campaign",
       year: "2025",
       img: "assets/img/work-carousel.jpg",
-      alt: "Velox Vest co-ownership social carousel",
+      alt: "Velox Vest co ownership social carousel",
       desc: "A social carousel system that explains fractional property ownership in plain language. Modular layouts, 3D props and a purple identity that stays consistent across 20+ posts.",
     },
     bora: {
@@ -50,12 +50,12 @@
       desc: "A launch flyer for a serviced plot offer where the price is the headline. Big number, clear title, and a portrait that keeps the offer human instead of corporate.",
     },
     gardenia: {
-      title: "Gardenia Pre-Launch",
+      title: "Gardenia Pre Launch",
       cat: "Advertising",
       year: "2025",
       img: "assets/img/work-gardenia.jpg",
-      alt: "Gardenia pre-launch offer flyer",
-      desc: "A pre-launch campaign that makes a land offer feel like an invitation, not a legal document. Green palette, balloons and a date-led layout.",
+      alt: "Gardenia pre launch offer flyer",
+      desc: "A pre launch campaign that makes a land offer feel like an invitation, not a legal document. Green palette, balloons and a date led layout.",
     },
     luxe: {
       title: "LUXE Apartments",
@@ -71,7 +71,7 @@
       year: "2025",
       img: "assets/img/work-velox-billboard.jpg",
       alt: "Velox city billboard reading You Can Own A Part Of The City",
-      desc: "A city-scale billboard that sells the idea of city ownership before the specs. One confident line, a clear location cue and a high-contrast layout that still works at speed and distance.",
+      desc: "A city scale billboard that sells the idea of city ownership before the specs. One confident line, a clear location cue and a high contrast layout that still works at speed and distance.",
     },
     choco: {
       title: "Lovely Love Treats Chocolate Cake",
@@ -79,7 +79,7 @@
       year: "2025",
       img: "assets/img/work-choco.jpg",
       alt: "Lovely Love Treats chocolate cake campaign",
-      desc: "An appetite-first campaign for Lovely Love Treats. Warm gold palette, oversized script and a chocolate pour that sells the first bite before you read the price.",
+      desc: "An appetite first campaign for Lovely Love Treats. Warm gold palette, oversized script and a chocolate pour that sells the first bite before you read the price.",
     },
     kaeru: {
       title: "KAERU",
@@ -87,7 +87,7 @@
       year: "2024",
       img: "assets/img/work-kaeru.jpg",
       alt: "KAERU Web3 website design",
-      desc: "A dark, cinematic Web3 site for a frog-themed token. Layered illustration, punchy section titles and a tokenomics flow that rewards scrolling.",
+      desc: "A dark, cinematic Web3 site for a frog themed token. Layered illustration, punchy section titles and a tokenomics flow that rewards scrolling.",
     },
     landpay: {
       title: "Landpay",
@@ -95,7 +95,7 @@
       year: "2025",
       img: "assets/img/work-landpay.jpg",
       alt: "Landpay Japa Plans social media design",
-      desc: "A social campaign for a land-buying platform. Bold purple system, direct copy and a 3D location pin that became the campaign's visual signature.",
+      desc: "A social campaign for a land buying platform. Bold purple system, direct copy and a 3D location pin that became the campaign's visual signature.",
     },
     boys: {
       title: "The Boys",
@@ -111,7 +111,7 @@
       year: "2024",
       img: "assets/img/work-wally.jpg",
       alt: "Wally the Alligator Web3 website design",
-      desc: "A bright, swamp-green Web3 landing page. Step-by-step buying guide, character art and a community section that keeps the tone light.",
+      desc: "A bright, swamp green Web3 landing page. Step by step buying guide, character art and a community section that keeps the tone light.",
     },
     edu: {
       title: "Velox Vest Education",
@@ -119,7 +119,7 @@
       year: "2025",
       img: "assets/img/work-edu.jpg",
       alt: "Velox Vest educational carousel design",
-      desc: "An education-first carousel series that answers the objections that stop people buying: security, paperwork and what happens after 12 months.",
+      desc: "An education first carousel series that answers the objections that stop people buying: security, paperwork and what happens after 12 months.",
     },
     august: {
       title: "August Flash Sales",
@@ -127,7 +127,7 @@
       year: "2025",
       img: "assets/img/work-august.jpg",
       alt: "August flash sales property promotion",
-      desc: "A loud, promo-led flyer stack for a flash sale. Gold 3D type, a ticking price ladder and enough energy to survive a crowded feed.",
+      desc: "A loud, promo led flyer stack for a flash sale. Gold 3D type, a ticking price ladder and enough energy to survive a crowded feed.",
     },
     marquis: {
       title: "Marquis Allocation",
@@ -143,7 +143,7 @@
       year: "2025",
       img: "assets/img/work-sizzles.jpg",
       alt: "Lovely Love Treats crunchy chinchin campaign",
-      desc: "A playful violet promo for Lovely Love Treats crunchy chinchin. Hand-lettered type, a product-forward composition and a price badge built to pop in a crowded feed.",
+      desc: "A playful violet promo for Lovely Love Treats crunchy chinchin. Hand lettered type, a product forward composition and a price badge built to pop in a crowded feed.",
     },
     "llt-meatpie": {
       title: "Lovely Love Treats Meatpie",
@@ -151,14 +151,14 @@
       year: "2025",
       img: "assets/img/work-llt-meatpie.jpg",
       alt: "Lovely Love Treats meatpie campaign",
-      desc: "A warm, direct campaign for a savoury favourite. Big appetite-led type, a clean price line and product photography that makes the crust the hero.",
+      desc: "A warm, direct campaign for a savoury favourite. Big appetite led type, a clean price line and product photography that makes the crust the hero.",
     },
     "velox-merch": {
       title: "Velox Vest Merch",
       cat: "Branding / Apparel",
       year: "2025",
       img: "assets/img/work-velox-merch.jpg",
-      alt: "Velox Vest branded t-shirt mockup",
+      alt: "Velox Vest branded tee mockup",
       desc: "A small merchandise system that carries the Velox Vest offer onto apparel. Minimal marks, a restrained palette and a 35% return message that still reads from across a room.",
     },
     "delight-lifestyle": {
@@ -167,7 +167,7 @@
       year: "2025",
       img: "assets/img/work-delight-lifestyle.jpg",
       alt: "Delight hibiscus drink lifestyle campaign",
-      desc: "A lifestyle-led brand campaign that puts the bottle in real hands. Warm social photography, a relaxed tone and a label that stays legible in the moment.",
+      desc: "A lifestyle led brand campaign that puts the bottle in real hands. Warm social photography, a relaxed tone and a label that stays legible in the moment.",
     },
     "delight-range": {
       title: "Delight Bottle Range",
