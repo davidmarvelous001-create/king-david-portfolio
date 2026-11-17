@@ -158,6 +158,12 @@ The home page reuses four of the same keys in `index.html`. To add a new project
 card in both files and add a matching entry to `PROJECTS`. Update the numbers inside the
 filter buttons (`.filter__count`) if the category totals change.
 
+A card that has a case study is an anchor rather than a button:
+`<a class="work-card" href="case-….html">` on Home and
+`<a class="project" href="case-….html" data-cat="…">` on Projects. Leave `data-work` off —
+the lightbox collects `[data-work]` only, so the card navigates and the lightbox's
+previous / next order skips it.
+
 The Projects grid shows **6 at a time** out of 21. The See More button reveals another 6 and
 reports how many are left; hidden cards are excluded from the lightbox. Changing a filter
 resets the grid to 6.
@@ -198,8 +204,10 @@ use `object-fit: cover`, and the two panel tiles fill the same ratio:
 The gallery takes the same top margin as the other blocks (`clamp(30px, 4vw, 48px)`), captions
 sit 12px under each tile, and the tile gap is `clamp(18px, 2.4vw, 30px)`.
 
-The two case pages are not yet linked from the work cards; the cards still open the lightbox.
-Point a card at `case-cadenza.html` or `case-delight.html` when the wiring is approved.
+The two case pages are linked from the matching cards on Home and Projects. Those cards are
+`<a class="work-card">` / `<a class="project">` elements without `data-work`, so they navigate
+instead of opening the lightbox; every other card stays a `<button data-work>` and still opens
+it. Keep that split when adding or removing a case study.
 
 The client quote at the end of each page is commented out until a real testimonial, name and
 role are supplied. No invented attribution ships in the meantime.
