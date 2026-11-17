@@ -12,7 +12,7 @@
     cadenza: {
       title: "Cadenza by Velox",
       cat: "Advertising / Real estate",
-      year: "2025",
+      year: "2026",
       img: "assets/img/work-cadenza-billboard.jpg",
       alt: "Cadenza by Velox billboard reading Your Family Deserves a Plot",
       desc: "A sales campaign for ₦20M plots off Obiri-Ikwere. The headline leads with family, the price is impossible to miss, and the C of O sits up front where it answers the objection. Enquiries rose 8% in the three weeks after launch.",
@@ -20,7 +20,7 @@
     delight: {
       title: "Delight Hibiscus Drink",
       cat: "Branding / Packaging",
-      year: "2025",
+      year: "2026",
       img: "assets/img/work-delight-bottle.jpg",
       alt: "Delight hibiscus drink bottle with fruit and spices",
       desc: "A label that lets the product name do the talking. Red, green and white palette, hand-drawn lettering and ingredient imagery that signals 'real' before you read a word. Brief to print-ready in 24 hours.",
@@ -449,7 +449,8 @@
   /* ---------- Split text reveals ---------- */
   const splitTargets = $$(
     ".section-head h2, .statement__head, .cta__title, .teaser__copy h2, " +
-    ".phero__title, .about-hero__title, .contact-hero__title, .intro__lead"
+    ".phero__title, .about-hero__title, .contact-hero__title, .intro__lead, " +
+    ".case-hero__title, .case-band__line"
   );
 
   function splitElement(el) {
@@ -506,7 +507,7 @@
   }
 
   /* ---------- Media clip reveals ---------- */
-  const mediaEls = $$(".work-card__frame, .project__frame, .phero__feature, .teaser__media, .about-bio__pic");
+  const mediaEls = $$(".work-card__frame, .project__frame, .phero__feature, .teaser__media, .about-bio__pic, .case-hero__media, .case-figure img, .case-spec");
   if (mediaEls.length) {
     const mediaPairs = mediaEls.map((el, i) => {
       el.classList.add("media-reveal");

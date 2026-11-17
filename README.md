@@ -1,6 +1,6 @@
 # KING DAVID. Portfolio Vol. 02
 
-A four-page portfolio for **David Olufemi**, a design lead and graphic designer in Port Harcourt, Nigeria.
+A portfolio for **David Olufemi**, a design lead and graphic designer in Port Harcourt, Nigeria.
 Editorial display type, a black / grey / white monochrome system and generous whitespace,
 built with plain HTML, CSS and JavaScript, with no framework and no build step.
 
@@ -17,6 +17,8 @@ problem-first, plain-language copy.
 | `projects.html` | Projects. Split hero with a bleed image and hand-written note, sticky text filters with counts, two-column uniform grid of 21 projects where every image box is 4:5, See More paging and a See the full archive link |
 | `about.html` | About. Full-height dark hero, portrait and short bio, a grey skills accordion, two experience rows and a moving tool logo banner |
 | `contact.html` | Contact. Full-height dark hero, contact details including WhatsApp, and a mailto form |
+| `case-cadenza.html` | Case study. Cadenza billboard for Velox Real Estate: problem, constraint, idea, work and result, with a 2×2 proof gallery and a next-case link |
+| `case-delight.html` | Case study. Delight Hibiscus: the same template applied to packaging, from the label anatomy to the print-ready flat artwork |
 
 ## Run it
 
@@ -160,6 +162,48 @@ The Projects grid shows **6 at a time** out of 21. The See More button reveals a
 reports how many are left; hidden cards are excluded from the lightbox. Changing a filter
 resets the grid to 6.
 
+## Case studies
+
+`case-cadenza.html` and `case-delight.html` share one template. Each page runs in the same
+order, so the argument is the structure:
+
+1. **Hero** — kicker, display title, one-paragraph lede, a client / role / year / scope
+   definition list and a full-bleed image with a caption rail.
+2. **Results** — three figures on a panel band (`.case-results`), real numbers only.
+3. **Problem, constraint, idea** — numbered sections with a sticky rail
+   (`.case-section`, `.case-rail`), body copy, `.case-points` and a pull quote
+   (`.case-quote`, used for working notes, not fake testimonials).
+4. **Statement band** — the campaign line at display scale (`.case-band`).
+5. **Work** — the 2×2 gallery described below.
+6. **Result** — what changed, then the next-case link (`.case-next`).
+
+### The 2×2 gallery
+
+Every case has exactly four tiles, two columns on desktop and one on phones:
+
+```css
+.case-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.case-figure > img,
+.case-spec,
+.case-proof { aspect-ratio: 4 / 5; }
+```
+
+All four boxes are the same size at every breakpoint (381×477 at 1440, 354×443 at 390), images
+use `object-fit: cover`, and the two panel tiles fill the same ratio:
+
+- `.case-spec` — a text panel that explains the layout: reading order, label anatomy, and so on.
+- `.case-proof` — a light panel that contains a full artwork or document with `object-fit: contain`,
+  so nothing is cropped.
+
+The gallery takes the same top margin as the other blocks (`clamp(30px, 4vw, 48px)`), captions
+sit 12px under each tile, and the tile gap is `clamp(18px, 2.4vw, 30px)`.
+
+The two case pages are not yet linked from the work cards; the cards still open the lightbox.
+Point a card at `case-cadenza.html` or `case-delight.html` when the wiring is approved.
+
+The client quote at the end of each page is commented out until a real testimonial, name and
+role are supplied. No invented attribution ships in the meantime.
+
 ## Assets
 
 ```
@@ -171,7 +215,13 @@ assets/img/portrait-hero.webp     background-free hero portrait
 assets/img/portrait-1.jpg         portrait, royal blue suit (source)
 assets/img/portrait-2.jpg         second portrait
 assets/img/work-*.jpg             optimised project images
+assets/img/work-cadenza-*.jpg     Cadenza billboard, street install and detail crops
+assets/img/work-delight-*.jpg     Delight packaging, campaign and flat label
 ```
+
+Case-study heroes are 2400px wide. The Delight hero uses
+`work-delight-range-wide.jpg`, a horizontally extended version of the studio shot whose side
+panels repeat each row's edge pixel, so the backdrop continues without a seam on wide screens.
 
 Images are pre-resized and compressed. Keep new work around 1400 to 1600px on the long edge.
 
@@ -211,6 +261,8 @@ index.html      home structure and copy
 projects.html   hero, filters, 21 project cards, See More and lightbox
 about.html      hero, bio, skills accordion, experience and tool marquee
 contact.html    contact details and form
+case-cadenza.html  Cadenza case study, full template
+case-delight.html  Delight Hibiscus case study, full template
 styles.css      design system, monochrome tokens, layouts, motion and responsive rules
 script.js       preloader, menu, split text, reveals, parallax, cursor, lightbox, filters,
                 See More, accordion, counters, rotator, page transitions and mailto form
