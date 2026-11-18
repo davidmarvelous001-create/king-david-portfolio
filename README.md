@@ -18,7 +18,7 @@ problem first, plain language copy.
 | `about.html` | About. Full height dark hero, portrait and short bio, a grey skills accordion, two experience rows and a moving tool logo banner |
 | `contact.html` | Contact. Full height dark hero, contact details including WhatsApp, and a mailto form |
 | `case-cadenza.html` | Case study. Cadenza billboard for Velox Real Estate: problem, constraint, idea, work and result, with a 2×2 proof gallery and a next case link |
-| `case-delight.html` | Case study. Delight Hibiscus: the same template applied to packaging, from the label anatomy to the print ready flat artwork |
+| `case-delight.html` | Case study. Delight Hibiscus: the same template applied to packaging, from the previous sticker and label anatomy to the print ready flat artwork |
 
 ## Run it
 
@@ -179,7 +179,9 @@ order, so the argument is the structure:
 2. **Results** — three figures on a panel band (`.case-results`), real numbers only.
 3. **Problem, constraint, idea** — numbered sections with a sticky rail
    (`.case-section`, `.case-rail`), body copy, `.case-points` and a pull quote
-   (`.case-quote`, used for working notes, not fake testimonials).
+   (`.case-quote`, used for working notes, not fake testimonials). Delight adds a
+   **previous look** section between the constraint and the idea: the tall sticker sits
+   beside the copy in `.case-legacy`, uncropped, while the section explains what changed.
 4. **Statement band** — the campaign line at display scale (`.case-band`).
 5. **Work** — the 2×2 gallery described below.
 6. **Result** — what changed, then the next-case link (`.case-next`).
@@ -204,6 +206,10 @@ use `object-fit: cover`, and the two panel tiles fill the same ratio:
 
 The gallery takes the same top margin as the other blocks (`clamp(30px, 4vw, 48px)`), captions
 sit 12px under each tile, and the tile gap is `clamp(18px, 2.4vw, 30px)`.
+
+Tall artwork that would be destroyed by a 4:5 crop does not go in the gallery. Delight's previous
+sticker uses `.case-legacy` instead: a two-column copy-and-image row that keeps the 1:2 ratio
+intact, stacks below 1100px, and caps the image at 320px on tablets and 300px on phones.
 
 The two case pages are linked from the matching cards on Home and Projects. Those cards are
 `<a class="work-card">` / `<a class="project">` elements without `data-work`, so they navigate
