@@ -49,10 +49,9 @@ The bio, project list, case-study details and metrics come from the supplied por
 - Delight Hibiscus label delivered print ready in 24 hours.
 
 Availability is written as **Available for new projects** across the site. The Home testimonial
-section shows one real quote from Adegbenro Love (Owner, Lovely Love Treats) in
-`testimonials__grid--single`, which lays the quote and attribution out across the full width.
-Remove that modifier and add two more `<figure class="testimonial">` cards when further quotes
-arrive so the grid returns to its three-up layout.
+section shows two real quotes in the standard grid: Adegbenro Love (Owner, Lovely Love Treats)
+and Asaolu Olayinka (Client, Delight Natural Drinks). The `testimonials__grid--single` modifier is
+kept for when the section has only one quote; remove it once two or more cards are present.
 
 The latest project images were refreshed from the shared Drive folder. The branding set now
 includes Lovely Love Treats (chocolate cake, meatpie and chinchin), Velox Vest merch and the
@@ -254,7 +253,7 @@ Images are pre-resized and compressed. Keep new work around 1400 to 1600px on th
 - Footer with sitemap, contact and social columns above a full width `KING DAVID.` baseline wordmark, a single bottom meta row, and a `KING / DAVID.` stack on phones.
 - Mouse drift on the intro hero portrait and ghost name, drift on the rotating hero words, cursor-following card image drift and magnetic links.
 - Every page's main headings lean toward the pointer, with a faint counter-drift on outlined and italic words. Off on touch and reduced-motion.
-- Client testimonial card on Home with a subtle hover lift; one real quote displayed, with two more slots available in the grid.
+- Client testimonial cards on Home with a subtle hover lift; two real quotes displayed, with one more slot available in the grid.
 - Cursor that grows into a labelled bubble ("View", "Email", "Call") over key targets.
 - Rotating home hero words with generated ghost tracks and hover dimming of siblings.
 - Infinite client marquee in Flicko with an edge fade, hover pause and drag-to-scrub with spring back, including Lovely Love Treats.
