@@ -237,7 +237,11 @@ Case-study heroes are 2400px wide. The Delight hero uses
 `work-delight-range-wide.jpg`, a horizontally extended version of the studio shot whose side
 panels repeat each row's edge pixel, so the backdrop continues without a seam on wide screens.
 
-Images are pre-resized and compressed. Keep new work around 1400 to 1600px on the long edge.
+Images are pre-resized and compressed from the original design exports, never re-saved from an
+already compressed copy. Project cards sit at 1800px on the long edge (JPEG quality 84, under
+about 650KB) so headline type stays sharp in the lightbox on 2× screens; a 1600px file is fine
+for anything that is mostly photography. Anything under 1400px will look soft when the lightbox
+scales it up.
 
 ## Interactions
 
