@@ -14,7 +14,7 @@ problem first, plain language copy.
 | File | Layout |
 | --- | --- |
 | `index.html` | Home. Full height portrait hero with ghost name, floating cards and a moving Flicko client marquee; then the rotating discipline words (Branding / Campaigns / Packaging) with ghost echoes, selected work, dark stats block and monochrome CTA |
-| `projects.html` | Projects. Split hero with a bleed image and hand written note, sticky text filters with counts, two column uniform grid of 21 projects where every image box is 4:5, See More paging and a See the full archive link |
+| `projects.html` | Projects. Split hero with a bleed image and hand written note, sticky text filters with counts, two column uniform grid of 24 projects where every image box is 4:5, See More paging and a See the full archive link |
 | `about.html` | About. Full height dark hero, portrait and short bio, a grey skills accordion, two experience rows and a moving tool logo banner |
 | `contact.html` | Contact. Full height dark hero, contact details including WhatsApp, and a mailto form |
 | `case-cadenza.html` | Case study. Cadenza billboard for Velox Real Estate: problem, constraint, idea, work and result, with a 2×2 proof gallery and a next case link |
@@ -164,7 +164,7 @@ A card that has a case study is an anchor rather than a button:
 the lightbox collects `[data-work]` only, so the card navigates and the lightbox's
 previous / next order skips it.
 
-The Projects grid shows **6 at a time** out of 21. The See More button reveals another 6 and
+The Projects grid shows **6 at a time** out of 24. The See More button reveals another 6 and
 reports how many are left; hidden cards are excluded from the lightbox. Changing a filter
 resets the grid to 6.
 
@@ -243,6 +243,13 @@ about 650KB) so headline type stays sharp in the lightbox on 2× screens; a 1600
 for anything that is mostly photography. Anything under 1400px will look soft when the lightbox
 scales it up.
 
+Every project card is a 4:5 box with `object-fit: cover`, so artwork that is not 4:5 gets its
+edges cut. Do not let that happen to a logo: pad the export to a 4:5 canvas first.
+`work-bridge.jpg` is the Bridge Layout flyer (1800×1852) drawn bottom aligned on a 1800×2250
+white canvas, which keeps the whole poster inside the card. The frame also rests at `scale: 1.04`
+so the pointer parallax never exposes an edge; that costs 2% of each side, which is why no
+important element should sit within about 60px of an edge in the source artwork.
+
 ## Interactions
 
 - Intro preloader with a percentage counter (skipped within a session).
@@ -276,7 +283,7 @@ scales it up.
 
 ```
 index.html      home structure and copy
-projects.html   hero, filters, 21 project cards, See More and lightbox
+projects.html   hero, filters, 24 project cards, See More and lightbox
 about.html      hero, bio, skills accordion, experience and tool marquee
 contact.html    contact details and form
 case-cadenza.html  Cadenza case study, full template
